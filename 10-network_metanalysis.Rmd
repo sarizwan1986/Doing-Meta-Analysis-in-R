@@ -376,12 +376,14 @@ netrank(m.netmeta, small.values = "good")
 We see that the `Rosiglitazone` treatment has the highest P-score, indicating that this treatment may be particularly helpful. Conversely, `Placebo` has a P-score of zero, which seems to go along with our intuition that a placebo will not likely be the best treatment decision. Nevertheless, it should be noted that one should **never automatically conclude** that one treatment is the best by solely because it has the highest score [@mbuagbaw2017approaches]. A good way to also visualize the **uncertainty** in our network is to produce **network forest plots** with the **"weakest"** treatment as comparison. This can be done using the `forest` function, wich works very similar to the one of the `meta` package described in [Chapter 5](#forest). We can specify the reference group for the forest plot using the `reference.group` argument.
 
 ```{r}
-forest(m.netmeta, 
-       reference.group = "placebo",
-       sortvar = TE,
-       xlim=c(-1.5,0.5),
-       col.square = "blue",
-       smlab = "Medications vs. Placebo \n (HbA1c value)")
+library(netmeta)
+dev.off()
+forest.netmeta(m.netmeta, 
+               reference.group = "plac",
+               sortvar = TE,
+               xlim=c(-1.5,0.5),
+               col.square = "blue",
+               smlab = "Medications vs. Placebo \n (HbA1c value)")
 ```
 
 We now see that the results are not as clear as they seemed before; we see that there are indeed **several high-performing treatments** with overlapping confidence intervals. This means that we cannot come to a clear-cut decision which treatment is in fact the best, but instead see that there are indeed several treatments for which we can see a high effectiveness compared to placebo.
