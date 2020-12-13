@@ -198,10 +198,10 @@ We see that the data has 28 rows, representing the treatment comparisons, and **
 
 * The first column, **TE**, contains the **effect size** of each comparison, and **seTE** contains the respective **standard error**. In case you do not have precalculated effect size data for each comparison, you can first use the `metacont` ([Chapter 4.1.2](#fixed.raw)) or `metabin` function ([Chapter 4.3](#binary)), and then extract the calculated effect sizes from the meta-analysis object you created using the `$TE` and `$seTE` selector. Another, more flexible approach may be to use the **effect size calculators** we describe in [Chapter 13](#effectsizecalculator). 
 * **treat1.long**, **treat2.long**, **treat1** and **treat2** represent the **two treatments being compared**. Variables **treat1** and **treat2** simply contain a shortened name of the original treatment name, and are thus redundant.
-* The **studlab** column contains the **unique study label**, signifying in which study the specific treatment comparison was made. We can easily check if we have **multiarm studies** contributing more than one comparison by using the `summary()` function.
+* The **studlab** column contains the **unique study label**, signifying in which study the specific treatment comparison was made. We can easily check if we have **multiarm studies** contributing more than one comparison by using the `table()` function.
 
 ```{r,message=FALSE}
-summary(data$studlab)
+table(data$studlab)
 ```
 
 We see that all studies **only contribute one comparison**, except for `Willms1999`, which **contributes three**. For all later steps, it is essential that you (1) include the **studlab** column in your dataset, (2) each individual study gets a unique label/name in the column, and (3) studies which contribute 2+ comparisons are named exactly the same across comparisons. 
