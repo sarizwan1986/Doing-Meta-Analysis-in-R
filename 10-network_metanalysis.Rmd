@@ -797,12 +797,8 @@ library(forcats)
 
 ```{r, fig.align="center", fig.width=5, eval=FALSE}
 rank.probability <- rank.probability(mcmc2)
-sucra(rank.probability, lower.is.better = TRUE)
-```
-
-```{r, fig.align="center", fig.width=5, echo=FALSE, fig.cap="SUCRA Score"}
-rank.probability <- rank.probability(mcmc2)
-sucra(rank.probability, lower.is.better = TRUE)
+sucraplot <- dmeta::sucra(rank.probability, lower.is.better = TRUE)
+plot(sucraplot)
 ```
 
 Looking at the SUCRA values of each treatment, we again see that **Rosiglitazone** may be the best treatment, followed by, with some distance, **Metformin** and **Pioglitazone**.
