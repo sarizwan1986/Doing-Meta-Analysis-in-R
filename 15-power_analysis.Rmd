@@ -124,7 +124,7 @@ Meaning that my power is 92%. This is more than the desired 80%, so given that m
 
 So, if i assume an effect of $d = 0.30$ in this example, i am lucky. If we play around with the effect size a little, however, while holding the other parameters constant, this can look very different.
 
-```{r,fig.width=5,fig.align='center',echo=FALSE,message=FALSE}
+```{r,fig.width=5,fig.align='center',message=FALSE}
 library(ggplot2)
 library(reshape)
 k <- seq(0, 50, length=1000)
@@ -188,7 +188,7 @@ $$V_{\delta}^*=2\times\frac{V_Y}{k}$$
 
 Again, you don't have to worry about the statistical details here. We have put the entire calculations into the `power.analysis` function, which can already introduced [before](#fixed.power).
 
-```{r, echo=FALSE}
+```{r}
 power.analysis.random<-function(d,k,n1,n2,p,heterogeneity){
 
   n1<-n1
