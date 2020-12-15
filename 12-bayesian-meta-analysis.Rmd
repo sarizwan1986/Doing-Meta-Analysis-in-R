@@ -225,7 +225,7 @@ ggplot(aes(x = tau), data = post.samples) +
 We see that the posterior distributions follow a unimodal, and roughly normal distribution, peaking around the values for $\mu$ and $\tau$ we saw in the output. The fact that Bayesian methods create an actual sampling distribution for our parameters of interest means that we can calculate **exact probabilities** that $\mu$ or $\tau$ will be **larger than some specific value**. For example, we may have found in previous literature that if effects of an intervention are below $SMD=0.30$, they are not meaningful anymore for the type of patients we are studying. We could therefore calculate the probability that the pooled effect is in fact $SMD=0.30$ or smaller, based on our model. This can be done by looking at the **Empirical Cumulative Distribution Function** (ECDF), which lets us select one specific value $X$, and returns the probability of some value $x$ being smaller than $X$ based on the data. The ECDF of the posterior distribution for the pooled effect size can be seen below:
 
 
-```{r, warning=F, message=F, fig.width=7, fig.height=5, fig.align='center', echo=F}
+```{r, warning=F, message=F, fig.width=7, fig.height=5, fig.align='center'}
 library(ggplot2)
 smd.ecdf = ecdf(post.samples$smd)
 ecdf.dat = data.frame(smd = 1:1000/1000,
