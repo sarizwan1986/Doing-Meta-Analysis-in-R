@@ -385,7 +385,7 @@ We will not go too much into the **details of how a permutation test is performe
 
 ```
 
-To **perform a permutation test** on our meta-regression model, we can use `metafors` in-built `permutest` function. As an example, I will now recalculate the results of my `model2` model we fitted above. We only have to supply the `permutest` function with the `rma` object, but **be aware that the permutation test can be computationally intensive, especially for large datasets, so the function might need some time to run**.
+To **perform a permutation test** on our meta-regression model, we can use `metafor` in-built `permutest` function. As an example, I will now recalculate the results of my `model2` model we fitted above. We only have to supply the `permutest` function with the `rma` object, but **be aware that the permutation test can be computationally intensive, especially for large datasets, so the function might need some time to run**.
 
 ```{r, eval=FALSE}
 permutest(model2)
